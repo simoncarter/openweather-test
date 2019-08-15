@@ -1,0 +1,22 @@
+<!--
+  <form class="form-inline mb-5"
+      [formGroup]="forecastSearchForm"
+      (ngSubmit)="search()"
+      novalidate>
+-->
+<form class="form-inline mb-5" [formGroup]="forecastSearchForm">
+  <div class="form-group col-8 pl-0">
+    <input class="form-control mt-3 col"
+           id="city"
+           name="city"
+           placeholder="City"
+           type="text"
+           formControlName="city"
+           required
+           minlength="2">
+  </div>
+  <button class="btn-search btn btn-primary mt-3 col-4" type="submit"
+          id="searchCityBtn"
+          [disabled]="forecastSearchForm.invalid" (click)="search()">Search</button>
+  <p *ngIf="city.errors">Please enter a city name (minimum 2 characters)</p>
+</form>
